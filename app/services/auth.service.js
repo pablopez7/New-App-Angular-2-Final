@@ -16,10 +16,16 @@ require('rxjs/add/operator/delay');
 var AuthService = (function () {
     function AuthService() {
         this.isLoggedIn = false;
+        this.isAdmin = false;
     }
-    AuthService.prototype.login = function () {
+    AuthService.prototype.login = function (username) {
         var _this = this;
-        return Observable_1.Observable.of(true).delay(2500).do(function (val) { return _this.isLoggedIn = true; });
+        return Observable_1.Observable.of(true).delay(2500).do(function (val) {
+            _this.isLoggedIn = true;
+            if (username == 'admin') {
+                _this.isAdmin = true;
+            }
+        });
     };
     AuthService.prototype.logout = function () {
         this.isLoggedIn = false;

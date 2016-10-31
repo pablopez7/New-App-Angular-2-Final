@@ -12,14 +12,19 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_routing_1 = require('./app.routing');
+var auth_service_1 = require('./services/auth.service');
+var auth_guard_1 = require('./authentication/auth.guard');
 var app_component_1 = require('./components/app/app.component');
 var home_component_1 = require('./components/home/home.component');
 var dashboard_component_1 = require('./components/dashboard/dashboard.component');
 var profile_component_1 = require('./components/profile/profile.component');
 var contact_component_1 = require('./components/contact/contact.component');
 var login_component_1 = require('./components/login/login.component');
-var auth_service_1 = require('./services/auth.service');
-var auth_guard_1 = require('./authentication/auth.guard');
+//Componentes de Administracion
+var admin_component_1 = require('./components/administration/admin/admin.component');
+var home_admin_component_1 = require('./components/administration/home/home-admin.component');
+var notes_admin_component_1 = require('./components/administration/notes/notes-admin.component');
+var messages_admin_component_1 = require('./components/administration/messages/messages-admin.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +36,11 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent,
                 profile_component_1.ProfileComponent,
                 contact_component_1.ContactComponent,
-                login_component_1.LoginComponent],
+                login_component_1.LoginComponent,
+                admin_component_1.AdminComponent,
+                home_admin_component_1.HomeAdminComponent,
+                notes_admin_component_1.NotesAdminComponent,
+                messages_admin_component_1.MessagesAdminComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [auth_service_1.AuthService, auth_guard_1.AuthGuard]
         }), 

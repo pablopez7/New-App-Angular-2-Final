@@ -24,10 +24,13 @@ var LoginComponent = (function () {
     LoginComponent.prototype.onLogin = function () {
         var _this = this;
         this.tryLogin = true;
-        this.authService.login().subscribe(function () {
+        this.authService.login(this.user['username']).subscribe(function () {
             if (_this.authService.isLoggedIn) {
                 _this.tryLogin = false;
-                _this.router.navigate(['/profile']);
+                if (_this.authService.isAdmin)
+                    _this.router.navigate(['/administration']);
+                else
+                    _this.router.navigate(['/profile']);
             }
         });
     };
